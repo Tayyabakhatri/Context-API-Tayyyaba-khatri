@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
 import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
 import { GlobalContext } from "../Context.jsx";
 import { useContext } from "react";
 import "./componentOne.css";
@@ -24,6 +26,16 @@ const Component1 = () => {
         lastName: lastName,
         email: email,
         password: password,
+        img: [
+          {
+            src: "src/assets/profile-avatar.png",
+            id: 1,
+          },
+          {
+            src: "src/assets/Rectangle 14.png",
+            id: 2,
+          },
+        ],
       },
     });
   }
@@ -110,42 +122,24 @@ const Component1 = () => {
               ref={userPassword}
             />
           </div>
+
           <hr />
           <button style={{ backgroundColor: "#855cf7" }} onClick={login}>
             Creat profile
           </button>
-        </div>
-      </div>
-
-      <div
-        className="container p-3"
-        style={{ backgroundColor: "white", borderRadius: "10px" }}
-      >
-        <div
-          className="outerDiv p-4"
-          style={{ backgroundColor: "#f6f1ff", borderRadius: "10px" }}
-        >
-          <h3>Welcom </h3>
-          
-          <h2>{state?.user?.firstName}</h2>
-          <p>{state?.user?.email}</p>
-          <div className="my-5">
-            <img src="src/assets/Rectangle 14.png" alt="" />
-          </div>
-          <hr />
-
-          {/* {
-            <Router>
-              <Nav.Link as={Link} to="/component2">
-                <button style={{ backgroundColor: "#855cf7" }}>
-                  Creat profile
-                </button>
-              </Nav.Link>
-              <Routes>
-                <Route path="/component2" element={<Component2 />} />
-              </Routes>
-            </Router>
-          } */}
+          {/* <Router>
+            <div className="d-flex justify-content-between">
+              <button style={{ backgroundColor: "#855cf7" }}>
+                <Link to="/dashboard" className="text-dark">
+                  {" "}
+                  Go to profile
+                </Link>
+              </button>
+            </div>
+            <Routes>
+              <Route path="/dashboard" element={<Component2 />} />
+            </Routes>
+          </Router> */}
         </div>
       </div>
     </>
