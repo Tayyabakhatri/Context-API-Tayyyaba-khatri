@@ -3,26 +3,27 @@ import React from "react";
 import { GlobalContext } from "../Context.jsx";
 import { useContext } from "react";
 import "./componentOne.css";
+import Component2 from "./Component2.jsx";
 // import { BsTwitterX } from "react-bootstrap-icons";
 
 const Component1 = () => {
-  let firstName = useRef();
-  let lastName=useRef()
+  let userfirstName = useRef();
+  let userlastName = useRef();
   let userEmail = useRef();
   let userPassword = useRef();
   let { state, dispatch } = useContext(GlobalContext);
   function login() {
-    let firstName = firstName.current.value;
-    let lastName = lastName.current.value;
+    let firstName = userfirstName.current.value;
+    let lastName = userlastName.current.value;
     let email = userEmail.current.value;
     let password = userPassword.current.value;
     dispatch({
       type: "USER_LOGIN",
       payload: {
-       firstName: firstName,
-       lastName: lastName,
+        firstName: firstName,
+        lastName: lastName,
         email: email,
-        password:password,
+        password: password,
       },
     });
   }
@@ -42,11 +43,18 @@ const Component1 = () => {
       </p>
       <br />
       <button onClick={login}>Login Malik</button> */}
-      <div className="container p-3" style={{backgroundColor:"white",borderRadius:"10px"}}>
-        <div className="outerDiv p-4" style={{backgroundColor:"#f6f1ff",borderRadius:"10px"}}>
+
+      <div
+        className="container p-3"
+        style={{ backgroundColor: "white", borderRadius: "10px" }}
+      >
+        <div
+          className="outerDiv p-4"
+          style={{ backgroundColor: "#f6f1ff", borderRadius: "10px" }}
+        >
           <h3>create a profile</h3>
           <p>create a free profile in 5min</p>
-          <button class="google-btn">
+          <button className="google-btn">
             <img
               src="https://img.icons8.com/color/48/000000/google-logo.png"
               alt="Google Logo"
@@ -54,28 +62,90 @@ const Component1 = () => {
             <span>Continue with Google</span>
           </button>
           <hr />
-          <div className="d-flex">
+          <div className="d-flex gap-3">
             <div>
-              First Name <input type="text" style={{padding: "8px" ,borderRadius:"10px",  outline:"none" }} required ref={firstName}/>
+              <div className="text-start">First Name</div>{" "}
+              <input
+                type="text"
+                style={{
+                  padding: "8px",
+                  borderRadius: "10px",
+                  outline: "none",
+                }}
+                required
+                ref={userfirstName}
+              />
             </div>
             <div>
-              Last Name <input type="text" style={{padding: "8px" ,borderRadius:"10px",  outline:"none" }} required ref={lastName} />
+              <div className="text-start">Last Name</div>{" "}
+              <input
+                type="text"
+                style={{
+                  padding: "8px",
+                  borderRadius: "10px",
+                  outline: "none",
+                }}
+                required
+                ref={userlastName}
+              />
             </div>
           </div>
           <div style={{ width: "100%" }} className="my-3">
-           <div className="text-start"> Email</div>
-            <input type="email" required className="w-100  " style={{ padding: "8px" ,borderRadius:"10px", outline:"none" }} ref={userEmail}/>
+            <div className="text-start"> Email</div>
+            <input
+              type="email"
+              required
+              className="w-100  "
+              style={{ padding: "8px", borderRadius: "10px", outline: "none" }}
+              ref={userEmail}
+            />
           </div>
           <div style={{ width: "100%" }} className="my-3">
             <div className="text-start">Password</div>
-            <input required
+            <input
+              required
               type="password"
-              className="w-100  "
-              style={{ padding: "8px", borderRadius:"10px", outline:"none" }} ref={userPassword}
+              className="w-100"
+              style={{ padding: "8px", borderRadius: "10px", outline: "none" }}
+              ref={userPassword}
             />
           </div>
           <hr />
-          <button style={{backgroundColor:"#855cf7"}}>Creat profile</button>
+          <button style={{ backgroundColor: "#855cf7" }} onClick={login}>
+            Creat profile
+          </button>
+        </div>
+      </div>
+
+      <div
+        className="container p-3"
+        style={{ backgroundColor: "white", borderRadius: "10px" }}
+      >
+        <div
+          className="outerDiv p-4"
+          style={{ backgroundColor: "#f6f1ff", borderRadius: "10px" }}
+        >
+          <h3>Welcom </h3>
+          
+          <h2>{state?.user?.firstName}</h2>
+          <p>{state?.user?.email}</p>
+          <div className="my-5">
+            <img src="src/assets/Rectangle 14.png" alt="" />
+          </div>
+          <hr />
+
+          {/* {
+            <Router>
+              <Nav.Link as={Link} to="/component2">
+                <button style={{ backgroundColor: "#855cf7" }}>
+                  Creat profile
+                </button>
+              </Nav.Link>
+              <Routes>
+                <Route path="/component2" element={<Component2 />} />
+              </Routes>
+            </Router>
+          } */}
         </div>
       </div>
     </>
