@@ -6,7 +6,6 @@ function App() {
   return (
     <>
       <Component1 />
-      
       <Component2 />
     </>
   );
