@@ -9,6 +9,7 @@ const Component2 = () => {
   let { state, dispatch } = useContext(GlobalContext);
   let images = state.user.img;
   console.log(images);
+  
 
   // for(var i=0;i<images.length;i++){
   //   let img=images[i]
