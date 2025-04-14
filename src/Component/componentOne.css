@@ -1,5 +1,5 @@
-body{
-    background-color:#e8e8e8 ;
+body {
+    background-color: #e8e8e8;
 }
 
 .google-btn {
@@ -24,9 +24,11 @@ body{
 .google-btn:hover {
     background-color: #f1f1f1;
 }
-input{
-   border: 0.1 solid black;
+
+input {
+    border: 0.1 solid black;
 }
-input:focus{
+
+input:focus {
     border-color: #855cf7;
 }

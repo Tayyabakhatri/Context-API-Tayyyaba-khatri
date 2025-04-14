@@ -9,7 +9,6 @@ const Component2 = () => {
   let { state, dispatch } = useContext(GlobalContext);
   let images = state.user.img;
   console.log(images);
-  
 
   // for(var i=0;i<images.length;i++){
   //   let img=images[i]
@@ -32,19 +31,20 @@ const Component2 = () => {
           <h2>{state?.user?.firstName}</h2>
           <p>{state?.user?.email}</p>
           <div className="my-5">
-            
             {/* {images.map((image) => (
               <div key={image.id}>
                 <img src={image.src} alt={`Image ${image.id}`} />
                 <p>Image Source: {image.src}</p>
               </div>
             ))} */}
-            {images ?(
-                            <div key={images.id}>
-                            <img src={images.src} alt={`Image ${images.id}`} />
-                            <p>Image Source: {images.src}</p>
-                          </div>
-            ):(<p>no image</p>)}
+            {images ? (
+              <div key={images.id}>
+                <img src={images.src} alt={`Image ${images.id}`} />
+                <p>Image Source: {images.src}</p>
+              </div>
+            ) : (
+              <p>no image</p>
+            )}
           </div>
           <hr />
 
